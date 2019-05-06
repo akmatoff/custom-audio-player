@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Связаться</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="shortcut icon" href="soundcontrol.ico">
+</head>
+<body>
+		<span class="nav-button" onclick="openNav()"><i class="fas fa-layer-group"></i></span>
+
+	<div class="container">
+		<div class="contact-form">
+			<form action="#">
+				<div class="row">
+					<div class="col-25">
+						<label for="fname">Ваше Имя</label>
+					</div>
+						<div class="col-75">
+							<input type="text" id="fname" name="firstname" placeholder="Ваше Имя...">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="lname">Ваша Фамилия</label>
+						</div>
+						<div class="col-75">
+							<input type="text" id="lname" name="lastname" placeholder="Ваша Фамилия...">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="country">Страна</label>
+						</div>
+						<div class="col-75">
+							<select id="country" name="country">
+								<option value="kyrgyzstan">Кыргызстан</option>
+								<option value="kazakhstan">Казахстан</option>
+								<option value="tagikistan">Таджикистан</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="subject">Текст</label>
+						</div>
+						<div class="col-75">
+							<textarea id="subject" name="subject" placeholder="Напишите что-нибудь..." style="height: 250px"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<input type="submit" value="Отправить" style="margin-top: 20px">
+					</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="overlay" id="OverNav">
+		<a class="close-button" onclick="closeNav()">&times;</a>
+		<div class="overlay-content">
+			<a href="index.html">ГЛАВНАЯ</a>
+			<a href="releases.html">РЕЛИЗЫ</a>
+			<a href="contact.html">СВЯЗАТЬСЯ</a>
+			<a href="about.html">О САЙТЕ</a>
+		</div>
+	</div>
+
+			
+	<script src="js/script.js"></script>
+	</body>
+	</html>
