@@ -20,12 +20,10 @@
 
 		<div class="time-and-song-title-flex-container">
 			<div id="songTitle" class="song-title"></div>
+			<div id="currentTime" class="current-time" style="display: none;">00:00</div>
 		</div>
 
-			<div class="seek-bar" id="seekBar">
-				<div id="fill" class="fill"></div>
-				<div id="circle" class="circle"></div>
-			</div>
+		<input id="songSlider" class="song-slider" type="range" min="0" step="1" onchange="seekSong()">
 		</div>
 
 	</div>

@@ -8,9 +8,9 @@ var songTitle = document.getElementById('songTitle');
 var seekBar = document.getElementById('seekBar');
 var currentTime = document.getElementById('currentTime');
 var duration = document.getElementById('duration');
-var fillBar = document.querySelector('.fill');
 var playButtonIcon = document.querySelector('#play');
 var playButton = document.querySelector('.play');
+var songSlider = document.getElementById('songSlider');
 
 var song = new Audio();
 var currentSong = 0;
@@ -20,7 +20,22 @@ window.onload = loadSong();
 function loadSong() {
 	song.src = "audio/" + songs[currentSong];
 	songTitle.textContent = (currentSong + 1) + ". " + songs[currentSong];
-	song.playbackRate = 1;
+}
+
+setInterval(updateSongSlider, 1000);
+
+function updateSongSlider() {
+	var c = Math.round(song.currentTime);
+	songSlider.value = c;
+	currentTime.textContent = convertTime(c);
+}
+
+function convertTime (secs) {
+	var min = Math.floor(secs/60);
+	var sec = secs & 60;
+	min = (min < 10) ? "0" + min : min;
+	sec = (sec < 10) ? "0" + sec : sec;
+	return (min + ":" + sec);
 }
 
 song.addEventListener('play', function() {
@@ -31,12 +46,6 @@ song.addEventListener('pause', function() {
 	playButtonIcon.className = "fas fa-play";
 });
 
-song.addEventListener('timeupdate', function(){
-
-	var position = song.currentTime / song.duration;
-
-	fillBar.style.width = position * 100 + '%';
-});
 
 function playOrPauseSong () {
 		song.playbackRate = 1;
@@ -64,48 +73,10 @@ function nextSong() {
 	song.play();
 }
 
-let mouseDown = false;
-
-function clamp (min, val, max) {
-	return Math.min(Math.max(min, val), max);
+function seekSong() {
+	song.currentTime = songSlider.value;
+	currentTime.textContent = convertTime(song.currentTime);
 }
-
-function getP(e) {
-	let p = (e.clientX - seekBar.offsetLeft) / seekBar.clientWidth;
-	p = clamp(0, p, 1);
-
-	return p;
-}
-
-seekBar.addEventListener('mouseDown', function (e) {
-	mouseDown = true;
-
-
-
-	fill.style.width = p * 100 + '%';
-
-
-});
-
-window.addEventListener('mouseup', function(e) {
-	if (!mouseDown) return;
-
-	mouseDown = false;
-
-	let p = getP(e);
-
-	fillBar.style.width = p * 100 + '%';
-
-	song.currentTime = p * song.duration;
-});
-
-window.addEventListener('mousemove', function(e){
-	if (!mouseDown) return;
-
-	let p = getP(e);
-
-	fillBar.style.width = p * 100 + '%';
-});
 
 /* OVERLAY */
 

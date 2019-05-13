@@ -70,42 +70,10 @@ body {
 	color: white;
 }
 
-.seek-bar {
-	width: 87%;
-	height: 5px;
-	background-color: white;
-	margin-top: 15px;
-	margin-left: 5%;
-	display: flex;
-	border-radius: 50px;
-	cursor: pointer;
-}
-
-.fill {
-	height: 5px;
-	background-color: #33ffcc;
-	border-radius: 30px;
-}
-
-.circle {
-	width: 15px;
-	height: 15px;
-	background-color: #33ffcc;
-	border-radius: 50px;
-	margin-top: -5px;
-}
-
-.time {
-	display: flex;
-	flex-direction: column;
-	height: 40px;
-	justify-content: center;
-	color: white;
-	font-family: calibri;
-	font-weight: bold;
-	margin-top: 40px;
-	margin-left: 5%;
-	width: 40px;
+.song-slider {
+	margin-top: 30px;
+	margin-left: 2%;
+	margin-right: 2%;
 }
 
 .time-and-song-title-flex-container {
